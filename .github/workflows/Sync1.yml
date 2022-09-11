@@ -13,7 +13,6 @@ jobs:
     - name: Downloading
       run: |
         wget https://raw.githubusercontent.com/HeroBenHero/Scripts/main/rclone.conf
-        rclone sync $Env:SOURCE $Env:DESTINATION --config=rclone.conf --progress
+        $Env:RCLONE
       env:
-        SOURCE: ${{ secrets.SOURCE }}
-        DESTINATION: ${{ secrets.DESTINATION }}
+        SOURCE: ${{ secrets.RCLONE }}
