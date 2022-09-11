@@ -13,6 +13,6 @@ jobs:
     - name: Downloading
       run: |
         wget https://raw.githubusercontent.com/HeroBenHero/Scripts/main/rclone.conf
-        $Env:RCLONE
-      env:
-        SOURCE: ${{ secrets.RCLONE }}
+        wget https://raw.githubusercontent.com/HeroTest5/GDrive-Cloner/main/Command.sh
+        sudo chmod 777 Command.sh
+        sudo bash Command.sh
