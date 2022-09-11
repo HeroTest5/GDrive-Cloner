@@ -13,6 +13,4 @@ jobs:
     - name: Downloading
       run: |
         wget https://raw.githubusercontent.com/HeroBenHero/Scripts/main/rclone.conf
-        $Env:RCLONE
-      env:
-        RCLONE: ${{ secrets.RCLONE }}
+        rclone sync Shared:GdriveXbot OnedriveBusiness1:GdriveXbot --config=rclone.conf --drive-acknowledge-abuse
