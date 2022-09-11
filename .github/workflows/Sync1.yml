@@ -1,0 +1,19 @@
+
+name: Sync1
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install rclone
+        sudo apt install wget
+    - name: Downloading
+      run: |
+        wget https://raw.githubusercontent.com/HeroBenHero/Scripts/main/rclone.conf
+        rclone sync $Env:SOURCE $Env:DESTINATION --config=rclone.conf --drive-acknowledge-abuse
+      env:
+        SOURCE: ${{ secrets.SOURCE }}
+        DESTINATION: ${{ secrets.DESTINATION }}
